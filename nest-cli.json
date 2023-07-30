@@ -1,24 +1,15 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/rest-micro/src",
+  "sourceRoot": "apps/users/src",
   "compilerOptions": {
     "deleteOutDir": true,
     "webpack": true,
-    "tsConfigPath": "apps/rest-micro/tsconfig.app.json"
+    "tsConfigPath": "apps/users/tsconfig.app.json"
   },
   "monorepo": true,
-  "root": "apps/rest-micro",
+  "root": "apps/users",
   "projects": {
-    "rest-micro": {
-      "type": "application",
-      "root": "apps/rest-micro",
-      "entryFile": "main",
-      "sourceRoot": "apps/rest-micro/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/rest-micro/tsconfig.app.json"
-      }
-    },
     "users": {
       "type": "application",
       "root": "apps/users",
