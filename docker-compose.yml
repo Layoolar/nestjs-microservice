@@ -1,4 +1,22 @@
 services:
+
+  users:
+    build:
+      context: .
+      dockerfile: ./apps/users/Dockerfile
+      target: development
+    command: npm run start:dev users
+    env_file:
+      - ./apps/users/.env
+    depends_on:
+      - mongodb-primary
+      - mongodb-secondary
+      - mongodb-arbiter
+    volumes:
+      - .:/usr/src/
+      - /usr/src/app/node_modules
+    ports:
+      - '3000: 3000'
   mongodb-primary:
     image: docker.io/bitnami/mongodb:6.0
     environment:
@@ -9,7 +27,7 @@ services:
     volumes:
       - 'mongodb_master_data:/bitnami/mongodb'
     ports:
-      - '27017'
+      - '27017:27017'
 
 
   mongodb-secondary:

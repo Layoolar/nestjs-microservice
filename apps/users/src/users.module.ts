@@ -14,6 +14,7 @@ import { User, UserSchema } from './schemas/user.schema';
   isGlobal: true,
     validationSchema: Joi.object({
       MONGODB_URI: Joi.string().required(),
+      PORT: Joi.string().required()
     }),
     envFilePath: './apps/users/.env',
   }),
